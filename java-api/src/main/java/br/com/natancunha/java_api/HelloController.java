@@ -11,8 +11,7 @@ public class HelloController {
     public Map<String, String> hello() {
         return Map.of(
             "message", "Minha primeira API REST com Spring Boot!",
-            "developer", "Natan Cunha, NATO",
-
+            "developer", "Natan Cunha",
             "status", "online"
         );
     }
