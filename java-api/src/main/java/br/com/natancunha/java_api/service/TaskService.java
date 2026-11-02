@@ -4,9 +4,9 @@ import br.com.natancunha.java_api.model.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;//nn luis humberto que escreveu.
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentHashMap; 
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -33,7 +33,19 @@ public class TaskService {
         return new ArrayList<>(tasks.values());
     }
 
-    public Task findById(Long id) {
-        return tasks.get(id);
+    public Task update(Long id, Task updatedTask) {
+        if (!tasks.containsKey(id)) {
+            return null;
+        }
+    
+        Task task = new Task(
+            id,
+            updatedTask.getTitle(),
+            updatedTask.getDescription(),
+            updatedTask.isCompleted()
+        );
+    
+        tasks.put(id, task);
+    
+        return task;
     }
-}
